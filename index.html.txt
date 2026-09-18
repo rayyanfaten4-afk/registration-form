@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            direction: ltr;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        fieldset {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-weight: bold;
+            color: #0056b3;
+            padding: 0 5px;
+        }
+        label {
+            display: inline-block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button[type="reset"] {
+            background-color: #6c757d;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>User Registration</h1>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+
+        <!-- ======================================= -->
+        <!-- TODO 1: مجموعة المعلومات الشخصية -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" value="Faten Rayyan" required minlength="3">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="rayyanfaten4@gmail.com" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="faten0593260437" required minlength="8">
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" value="faten0593260437" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" value="2004-04-07" required>
+        </fieldset>
+
+        <!-- ======================================= -->
+        <!-- TODO 2: مجموعة معلومات التواصل -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>Contact Information</legend>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" value="059-326-0437" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format: 059-123-4567">
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" cols="40">Gaza Strip</textarea>
+
+            <label for="city">City:</label>
+            <select id="city" name="city">
+                <option value="">-- Select City --</option>
+                <option value="gaza">Gaza</option>
+                <option value="khan-younis">Khan Younis</option>
+                <option value="rafah">Rafah</option>
+                <option value="deir-al-balah" selected>Deir al-Balah</option>
+                <option value="jabalia">Jabalia</option>
+            </select>
+        </fieldset>
+
+        <!-- ======================================= -->
+        <!-- TODO 3: مجموعة التفضيلات -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>Preferences</legend>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            
+            <input type="radio" id="female" name="gender" value="female" checked>
+            <label for="female">Female</label>
+            <br><br>
+
+            <label>Interests:</label><br>
+            <input type="checkbox" id="coding" name="interests" value="coding" checked>
+            <label for="coding">Coding</label><br>
+
+            <input type="checkbox" id="design" name="interests" value="design" checked>
+            <label for="design">Design</label><br>
+
+            <input type="checkbox" id="gaming" name="interests" value="gaming">
+            <label for="gaming">Gaming</label><br>
+
+            <input type="checkbox" id="reading" name="interests" value="reading">
+            <label for="reading">Reading</label><br>
+
+            <input type="checkbox" id="sports" name="interests" value="sports">
+            <label for="sports">Sports</label>
+            <br><br>
+
+            <label for="skill">Skill Level (1-10):</label>
+            <input type="range" id="skill" name="skill" min="1" max="10" value="5">
+        </fieldset>
+
+        <!-- ======================================= -->
+        <!-- TODO 4: الصورة الشخصية -->
+        <!-- ======================================= -->
+        <fieldset>
+            <legend>Profile Picture</legend>
+            <label for="photo">Profile Picture:</label>
+            <input type="file" id="photo" name="photo" accept="image/*">
+        </fieldset>
+
+        <!-- ======================================= -->
+        <!-- TODO 5: الشروط والأزرار -->
+        <!-- ======================================= -->
+        <div style="margin-bottom: 20px;">
+            <input type="checkbox" id="terms" name="terms" required checked>
+            <label for="terms">I agree to the Terms and Conditions</label>
+        </div>
+
+        <div>
+            <button type="submit">Register</button>
+            <button type="reset">Clear Form</button>
+        </div>
+
+    </form>
+
+</body>
+</html>
